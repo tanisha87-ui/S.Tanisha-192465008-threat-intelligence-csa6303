@@ -1,0 +1,76 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMgT5D6QLIx5ex4Gp3+TsqS",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakshmitha04/CSA6303/blob/main/LAB%20EXPERIMENTS/EXP8\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "b9c5m53vqV7U",
+        "outputId": "e34728cc-00a9-45cd-9df3-b5f560f3f004"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter source segment: LOW TRUST\n",
+            "Enter destination segment: DATABASE\n",
+            "ACCESS BLOCKED\n"
+          ]
+        }
+      ],
+      "source": [
+        "policy = {\n",
+        "    \"LowTrust\": [\"Internet\"],\n",
+        "    \"Application\": [\"Database\"],\n",
+        "    \"Database\": []\n",
+        "}\n",
+        "\n",
+        "source = input(\"Enter source segment: \")\n",
+        "destination = input(\"Enter destination segment: \")\n",
+        "\n",
+        "if destination in policy.get(source, []):\n",
+        "    print(\"ACCESS ALLOWED\")\n",
+        "else:\n",
+        "    print(\"ACCESS BLOCKED\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "0pnkhn8_qiky"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}

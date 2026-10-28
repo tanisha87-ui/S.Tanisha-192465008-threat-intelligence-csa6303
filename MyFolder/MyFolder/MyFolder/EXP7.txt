@@ -1,0 +1,82 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPYwn7FZZfh0TuL6qRDmh8j",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakshmitha04/CSA6303/blob/main/LAB%20EXPERIMENTS/EXP7\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oOC6US_Xrd7e",
+        "outputId": "61025d64-fc2b-40c4-b9e0-97dd151bf284"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting scapy\n",
+            "  Downloading scapy-2.8.0-py3-none-any.whl.metadata (5.8 kB)\n",
+            "Downloading scapy-2.8.0-py3-none-any.whl (2.8 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.8/2.8 MB\u001b[0m \u001b[31m28.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: scapy\n",
+            "Successfully installed scapy-2.8.0\n",
+            "Capturing 5 packets...\n",
+            "Ether / IP / TCP 172.28.0.12:http_alt > 172.28.0.1:49120 PA / Raw\n",
+            "Ether / IP / TCP 172.28.0.1:49120 > 172.28.0.12:http_alt A\n",
+            "Ether / IP / TCP 172.28.0.12:http_alt > 172.28.0.1:49132 PA / Raw\n",
+            "Ether / IP / TCP 172.28.0.1:49132 > 172.28.0.12:http_alt A\n",
+            "Ether / IP / TCP 172.28.0.12:http_alt > 172.28.0.1:49120 PA / Raw\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<Sniffed: TCP:0 UDP:0 ICMP:0 Other:0>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ],
+      "source": [
+        "!pip install scapy\n",
+        "\n",
+        "from scapy.all import sniff\n",
+        "\n",
+        "def display_packet(packet):\n",
+        "    print(packet.summary())\n",
+        "\n",
+        "print(\"Capturing 5 packets...\")\n",
+        "sniff(prn=display_packet, count=5, store=False)"
+      ]
+    }
+  ]
+}

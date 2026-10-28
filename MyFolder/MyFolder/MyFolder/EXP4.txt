@@ -1,0 +1,84 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOAa2Xw8hoVwV1Bgt2inMqa",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakshmitha04/CSA6303/blob/main/LAB%20EXPERIMENTS/EXP4\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FXu1CXStojvi",
+        "outputId": "3cbd54ea-38f0-4a7b-f52e-66264c5f6dbb"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter message: HII GOOD MORNING\n",
+            "Enter shared key: 45\n",
+            "\n",
+            "Original Message: HII GOOD MORNING\n",
+            "Captured Encrypted Data: b'||}\\x15sz{q\\x14x{gz|zr'\n",
+            "Without Key: Data is not directly readable\n",
+            "With Shared Key: HII GOOD MORNING\n"
+          ]
+        }
+      ],
+      "source": [
+        "def encrypt(message, key):\n",
+        "    return bytes(\n",
+        "        ord(char) ^ key[i % len(key)]\n",
+        "        for i, char in enumerate(message)\n",
+        "    )\n",
+        "\n",
+        "def decrypt(ciphertext, key):\n",
+        "    return \"\".join(\n",
+        "        chr(byte ^ key[i % len(key)])\n",
+        "        for i, byte in enumerate(ciphertext)\n",
+        "    )\n",
+        "\n",
+        "message = input(\"Enter message: \")\n",
+        "key_text = input(\"Enter shared key: \")\n",
+        "\n",
+        "if not key_text:\n",
+        "    raise ValueError(\"Key cannot be empty.\")\n",
+        "\n",
+        "key = key_text.encode()\n",
+        "\n",
+        "ciphertext = encrypt(message, key)\n",
+        "\n",
+        "print(\"\\nOriginal Message:\", message)\n",
+        "print(\"Captured Encrypted Data:\", ciphertext)\n",
+        "print(\"Without Key: Data is not directly readable\")\n",
+        "print(\"With Shared Key:\", decrypt(ciphertext, key))"
+      ]
+    }
+  ]
+}

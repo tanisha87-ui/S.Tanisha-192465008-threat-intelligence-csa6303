@@ -1,0 +1,76 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMLBtQbRVZYP22X+BUxpPyy",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakshmitha04/CSA6303/blob/main/LAB%20EXPERIMENTS/EXP3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BixgWwPmn5GA",
+        "outputId": "71817d9d-cb65-4e92-c513-e2ca8643f0eb"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter security policy document text: RESPONSIBILITY\n",
+            "\n",
+            "Security Policy Assessment\n",
+            "Scope: MISSING\n",
+            "Roles and Responsibilities: MISSING\n",
+            "Enforcement: MISSING\n",
+            "Review Cycle: MISSING\n",
+            "Approval Authority: MISSING\n"
+          ]
+        }
+      ],
+      "source": [
+        "document = input(\"Enter security policy document text: \").lower()\n",
+        "\n",
+        "requirements = {\n",
+        "    \"Scope\": [\"scope\", \"applies to\", \"covered systems\"],\n",
+        "    \"Roles and Responsibilities\": [\"responsibilities\", \"roles\", \"owner\"],\n",
+        "    \"Enforcement\": [\"enforcement\", \"disciplinary\", \"violation\"],\n",
+        "    \"Review Cycle\": [\"review\", \"annually\", \"every year\"],\n",
+        "    \"Approval Authority\": [\"approved by\", \"approval authority\", \"authorized by\"]\n",
+        "}\n",
+        "\n",
+        "print(\"\\nSecurity Policy Assessment\")\n",
+        "\n",
+        "for element, keywords in requirements.items():\n",
+        "    if any(keyword in document for keyword in keywords):\n",
+        "        print(f\"{element}: PRESENT\")\n",
+        "    else:\n",
+        "        print(f\"{element}: MISSING\")"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMPjtft3IApQnXzawdIK4/B",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakshmitha04/CSA6303/blob/main/LAB%20EXPERIMENTS/EXP1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "55bvBaX4g3aO",
+        "outputId": "1a29e3a7-7ce6-41f7-cf90-6532e792d50e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the business scenario: BANK\n",
+            "Application Area: Banking Fraud Prevention\n"
+          ]
+        }
+      ],
+      "source": [
+        "scenario = input(\"Enter the business scenario: \").lower()\n",
+        "\n",
+        "if any(word in scenario for word in [\"bank\", \"credit card\", \"financial fraud\"]):\n",
+        "    print(\"Application Area: Banking Fraud Prevention\")\n",
+        "elif any(word in scenario for word in [\"hospital\", \"patient\", \"medical\", \"healthcare\"]):\n",
+        "    print(\"Application Area: Healthcare Data Protection\")\n",
+        "elif any(word in scenario for word in [\"shopping\", \"online store\", \"e-commerce\", \"payment fraud\"]):\n",
+        "    print(\"Application Area: E-commerce Fraud Prevention\")\n",
+        "elif any(word in scenario for word in [\"factory\", \"power grid\", \"industrial\"]):\n",
+        "    print(\"Application Area: Industrial Threat Protection\")\n",
+        "else:\n",
+        "    print(\"Application Area: General Cyber Threat Intelligence\")"
+      ]
+    }
+  ]
+}
